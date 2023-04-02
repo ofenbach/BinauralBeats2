@@ -133,7 +133,7 @@ class CatDesign:
             self.ui.element('label')
             TextElement(tag='label', text=placeholder)
 
-    def outline_button(self):
+    def outline_button(self, text, on_click):
         style = """
         .button_slide {
           color: #FFF;
@@ -152,8 +152,8 @@ class CatDesign:
         }
         """
         self.ui.add_head_html(f'<style>{style}</style>')
-        with self.ui.element('div').classes('button_slide slide_right'):
-            self.ui.label("test").style('color: red;')
+        self.ui.button(text, on_click=on_click).props(' outline').classes('button_slide slide_right')
+
 
     def card(self, img_src="", header="Heading", sub_header="Subheading"):
 
